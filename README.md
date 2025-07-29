@@ -1,4 +1,4 @@
-# Ops Center MCP Server
+# MCP Operations Center
 
 Machine Control Protocol (MCP) server for Operations Center, using MCP Python SDK & JSON-RPC 2.0.
 
@@ -8,6 +8,40 @@ Machine Control Protocol (MCP) server for Operations Center, using MCP Python SD
 - **Authentication**: Bearer token enforcement.
 - **SLA/Health**: computes SLA breaches when backend lacks.
 - **Idempotency**: supports idempotency‐key on creates.
+
+## MCP Client UI & LLM Integration
+
+This repo now includes a modern React-based client UI and a local LLM chat integration for Operations Center MCP.
+
+### Features
+- Sidebar to select resource type (tenants, workbenches, requests, tasks, queues, roles, agents)
+- Dynamic forms to invoke MCP tools/resources
+- Chat panel for LLM-driven queries and summaries
+- LLM powered by Hugging Face Transformers (e.g., facebook/opt-1.3b)
+
+### Setup
+
+#### 1. LLM Backend
+- Install dependencies:
+  ```bash
+  pip install -r requirements.txt
+  ```
+- Run the LLM server:
+  ```bash
+  uvicorn llm_server:app --reload
+  ```
+
+#### 2. Frontend Client
+- From the repo root:
+  ```bash
+  cd client
+  npm install
+  npm run dev
+  ```
+
+#### 3. Usage
+- Access the client at http://localhost:5173
+- The client will connect to the MCP server and LLM backend for tool invocation and chat.
 
 ## Setup
 1. Clone:

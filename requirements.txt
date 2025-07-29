@@ -4,3 +4,5 @@ httpx
 pydantic
 mcp
 python-dotenv
+transformers
+accelerate
